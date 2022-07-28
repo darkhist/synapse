@@ -1,13 +1,7 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+const handler = () => new Response("hello from the synapse API");
 
-type Data = {
-  name: string
-}
+export const config = {
+  runtime: "experimental-edge",
+};
 
-export default function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  res.status(200).json({ name: 'John Doe' })
-}
+export default handler;
