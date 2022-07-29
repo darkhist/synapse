@@ -4,5 +4,46 @@
 |___/\__, |_| |_|\__,_| .__/|___/\___|
       __/ |           | |             
      |___/            |_|             
-                                      
-                                      
+
+
+
+// AUTHOR
+Made with 🖤 by Quinn Salas <@darkhist>
+
+// ABOUT
+create: yarn new 
+preview: yarn dev / yarn start
+share: git push origin main
+
+// SOURCE
+https://github.com/darkhist/synapse
+
+// STACK
+Node.js
+JavaScript / TypeScript
+Next.js
+React
+Markdown
+
+// LIBS
+gray-matter
+inquirer
+markdown-it
+tailwindcss
+
+// SOCIAL
+https://github.com/darkhist
+https://instagram.com/darkhist
+https://open.spotify.com/user/qmsalas321?si=60af7b3193514f39
+
+// INSPO
+Oak: https://oak.is/
+mymind: https://mymind.com/
+Streams by Tyler Angert: https://tyler.cafe/
+Notion: https://www.notion.so/
+The Browser Company: https://thebrowser.company/
+Archillect: https://archillect.com/
+Cory Infinite: https://www.coryinfinite.com/
+
+// THANK YOU
+Thanks for stopping by! Have a good day! :-)
