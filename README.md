@@ -27,7 +27,7 @@ yarn new
 2. Preview
 
 ```
-yarn dev / yarn start
+yarn dev
 ```
 
 3. Share

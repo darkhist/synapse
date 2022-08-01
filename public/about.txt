@@ -12,7 +12,7 @@ Made with 🖤 by Quinn Salas <@darkhist>
 
 // ABOUT
 create: yarn new 
-preview: yarn dev / yarn start
+preview: yarn dev 
 share: git push origin main
 
 // SOURCE
@@ -27,8 +27,8 @@ Markdown
 
 // LIBS
 gray-matter
-inquirer
 markdown-it
+inquirer
 tailwindcss
 
 // SOCIAL
