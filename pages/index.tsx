@@ -45,6 +45,7 @@ const Home = ({ thoughts }: Props) => (
   <div className="bg-black text-white">
     <Head>
       <title>synapse</title>
+      <meta charSet="UTF-8" />
       <meta name="description" content="Minimal CLI-powered markdown blog" />
       <meta name="keywords" content="blog, CLI, software, markdown" />
       <meta name="author" content="Quinn Salas" />
