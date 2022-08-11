@@ -3,7 +3,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 const Document = () => (
   <Html lang="en">
     <Head>
-      <link rel="icon" href="https://fav.farm/🍃" />
+      <link rel="icon" href="/favicon.svg" />
     </Head>
     <body>
       <Main />
