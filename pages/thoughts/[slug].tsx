@@ -28,7 +28,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = (ctx) => {
+export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = ctx.params?.slug;
   const fileName = fs.readFileSync(`thoughts/${slug}.md`, "utf-8");
 
