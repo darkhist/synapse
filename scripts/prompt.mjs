@@ -12,7 +12,7 @@ const timestamp = new Date().toLocaleTimeString("en-US", {
   second: "2-digit",
 });
 
-const out = `thoughts/idea-${Date.now()}.md`;
+let out = `thoughts/idea-${Date.now()}.md`;
 
 inquirer
   .prompt([
@@ -25,19 +25,26 @@ inquirer
       type: "editor",
       message: "What're you thinking about?",
     },
+    {
+      name: "hidden",
+      type: "confirm",
+      message: "Hide?",
+    },
   ])
   .then((answers) => {
+    if (answers.hidden) {
+      out = `thoughts/idea-${Date.now()}.hidden.md`;
+    }
+
     fs.writeFileSync(out, matter, { encoding: "utf-8" });
     fs.appendFileSync(out, "\n");
     fs.appendFileSync(out, `title: ${answers.title}\n`);
-    fs.appendFileSync(out, `date: ${date}`);
-    fs.appendFileSync(out, "\n");
+    fs.appendFileSync(out, `date: ${date}\n`);
     // wrap with "" to avoid YAML parsing issues
     // and ensure timestamps render in HH:MM:SS format
-    fs.appendFileSync(out, `time: "${timestamp}"`);
-    fs.appendFileSync(out, "\n");
+    fs.appendFileSync(out, `time: "${timestamp}"\n`);
+    fs.appendFileSync(out, `hidden: ${answers.hidden}\n`);
     fs.appendFileSync(out, matter);
     fs.appendFileSync(out, "\n\n");
     fs.appendFileSync(out, answers.content);
-    fs.appendFileSync(out, "\n");
   });

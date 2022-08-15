@@ -12,6 +12,7 @@ interface Thought {
     title: string;
     date: string;
     time: string;
+    hidden: boolean;
   };
 }
 

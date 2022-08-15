@@ -5,7 +5,10 @@ const Navigation = () => (
     <ul className="flex justify-between">
       <li>
         <Link href="/">
-          <a className="font-SourceSerifPro font-bold text-2xl hover:text-[#fc5c6a]">
+          <a
+            className="font-SourceSerifPro font-bold text-2xl hover:text-[#fc5c6a]"
+            aria-label="home"
+          >
             synapse
           </a>
         </Link>

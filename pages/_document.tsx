@@ -1,7 +1,7 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
 const Document = () => (
-  <Html lang="en">
+  <Html lang="en" className="max-h-screen">
     <Head>
       <meta charSet="UTF-8" />
       <meta name="description" content="Minimal CLI-powered markdown blog" />
