@@ -2,8 +2,8 @@ import type { GetStaticProps } from "next";
 import Head from "next/head";
 
 import fs from "node:fs";
-
 import matter from "gray-matter";
+
 import List from "../components/List";
 
 interface Thought {
@@ -23,17 +23,18 @@ export interface Props {
 export const getStaticProps: GetStaticProps = async () => {
   const files = fs.readdirSync("thoughts");
 
-  const thoughts = files.map((fileName) => {
-    const slug = fileName.replace(".md", "");
+  const thoughts = files
+    .filter((file) => !file.includes("hidden"))
+    .map((file) => {
+      const slug = file.replace(".md", "");
+      const readFile = fs.readFileSync(`thoughts/${file}`, "utf-8");
+      const { data: frontmatter } = matter(readFile);
 
-    const readFile = fs.readFileSync(`thoughts/${fileName}`, "utf-8");
-    const { data: frontmatter } = matter(readFile);
-
-    return {
-      slug,
-      frontmatter,
-    };
-  });
+      return {
+        slug,
+        frontmatter,
+      };
+    });
 
   return {
     props: {
