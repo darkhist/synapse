@@ -46,7 +46,7 @@ const Post = ({ frontmatter: { title, date, time }, content }: Props) => (
     <Head>
       <title>{title}</title>
     </Head>
-    <main className="prose min-h-fit mx-auto my-10">
+    <main className="prose min-h-fit py-2 mx-auto my-10">
       <h1 className="font-SourceSerifPro text-5xl px-12 pt-5">{title}</h1>
       <p className="font-bold px-12">
         {date}
