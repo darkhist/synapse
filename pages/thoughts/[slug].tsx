@@ -1,5 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
+import Link from "next/link";
+import { ArrowLeftIcon } from "@radix-ui/react-icons";
 
 import fs from "node:fs";
 
@@ -45,8 +47,9 @@ const Post = ({ frontmatter: { title, date, time }, content }: Props) => (
   <>
     <Head>
       <title>{title}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </Head>
-    <main className="prose min-h-fit py-2 mx-auto my-10">
+    <main className="prose min-h-fit mx-auto">
       <h1 className="font-SourceSerifPro text-2xl md:text-5xl px-12 pt-5">
         {title}
       </h1>
@@ -62,6 +65,14 @@ const Post = ({ frontmatter: { title, date, time }, content }: Props) => (
         dangerouslySetInnerHTML={{ __html: md().render(content) }}
       />
     </main>
+    <footer className="prose mx-auto px-12 pb-6">
+      <Link href="/">
+        <a className="font-bold flex items-center" aria-label="Return to Home">
+          <ArrowLeftIcon className="mx-1" aria-hidden />
+          BACK
+        </a>
+      </Link>
+    </footer>
   </>
 );
 
