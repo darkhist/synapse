@@ -8,20 +8,23 @@ const List = ({ thoughts }: Props) => (
       .map(
         ({ slug, frontmatter: { title, date, hidden } }) =>
           !hidden && (
-            <Link key={slug} href={`/thoughts/${slug}`}>
-              <li className="flex flex-col md:px-10 py-5 cursor-pointer hover:bg-[#ffffff0f] hover:translate-x-1">
-                <div className="text-l text-gray-400 mx-5">
+            <li
+              key={slug}
+              className="flex flex-col md:px-10 py-5 hover:bg-[#ffffff0f] hover:translate-x-1"
+            >
+              <article>
+                <p className="text-l text-gray-400 mx-5">
                   {new Intl.DateTimeFormat("en-US", {
                     dateStyle: "full",
                   }).format(new Date(date))}
-                </div>
-                <div className="px-5 py-2">
-                  <a className="text-xl md:text-2xl text-left font-bold underline">
+                </p>
+                <Link href={`/thoughts/${slug}`}>
+                  <a className="px-5 py-2 text-xl md:text-2xl text-left font-bold underline">
                     {title}
                   </a>
-                </div>
-              </li>
-            </Link>
+                </Link>
+              </article>
+            </li>
           )
       )
       .reverse()}
