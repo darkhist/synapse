@@ -49,7 +49,7 @@ const Post = ({ frontmatter: { title, date, time }, content }: Props) => (
       <title>{title}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </Head>
-    <main className="prose min-h-fit mx-auto">
+    <main className="prose min-h-fit mx-auto py-6">
       <h1 className="font-SourceSerifPro text-2xl md:text-5xl px-12 pt-5">
         {title}
       </h1>
@@ -65,14 +65,6 @@ const Post = ({ frontmatter: { title, date, time }, content }: Props) => (
         dangerouslySetInnerHTML={{ __html: md().render(content) }}
       />
     </main>
-    <footer className="prose mx-auto px-12 pb-6">
-      <Link href="/">
-        <a className="font-bold flex items-center" aria-label="Return to Home">
-          <ArrowLeftIcon className="mx-1" aria-hidden />
-          BACK
-        </a>
-      </Link>
-    </footer>
   </>
 );
 
