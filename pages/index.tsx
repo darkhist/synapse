@@ -51,7 +51,7 @@ const Home = ({ thoughts }: Props) => (
     </Head>
 
     <main className="min-h-screen">
-      <h1 className="font-SourceSerifPro text-4xl p-10 text-center">
+      <h1 className="font-SourceSerifPro text-4xl px-auto pt-6 text-center">
         Thoughts
       </h1>
       <List thoughts={thoughts} />
