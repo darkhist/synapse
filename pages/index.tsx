@@ -27,8 +27,8 @@ export const getStaticProps: GetStaticProps = async () => {
     .filter((file) => !file.includes("hidden"))
     .map((file) => {
       const slug = file.replace(".md", "");
-      const readFile = fs.readFileSync(`thoughts/${file}`, "utf-8");
-      const { data: frontmatter } = matter(readFile);
+      const posts = fs.readFileSync(`thoughts/${file}`, "utf-8");
+      const { data: frontmatter } = matter(posts);
 
       return {
         slug,

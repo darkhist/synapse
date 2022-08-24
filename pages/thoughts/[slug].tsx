@@ -17,9 +17,9 @@ interface Props {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const files = fs.readdirSync("thoughts");
-  const paths = files.map((fileName) => ({
+  const paths = files.map((file) => ({
     params: {
-      slug: fileName.replace(".md", ""),
+      slug: file.replace(".md", ""),
     },
   }));
   return {
@@ -30,9 +30,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = ctx.params?.slug;
-  const fileName = fs.readFileSync(`thoughts/${slug}.md`, "utf-8");
+  const source = fs.readFileSync(`thoughts/${slug}.md`, "utf-8");
 
-  const { data: frontmatter, content } = matter(fileName);
+  const { data: frontmatter, content } = matter(source);
   return {
     props: {
       frontmatter,
@@ -52,11 +52,11 @@ const Post = ({ frontmatter: { title, date, time }, content }: Props) => (
         {title}
       </h1>
       <p className="font-bold px-12">
-        {date}
+        <span>{date}</span>
         <span className="px-2" aria-hidden>
           /
         </span>
-        {time}
+        <time>{time}</time>
       </p>
       <div
         className="px-12"
