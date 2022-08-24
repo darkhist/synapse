@@ -1,7 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import Link from "next/link";
-import { ArrowLeftIcon } from "@radix-ui/react-icons";
 
 import fs from "node:fs";
 

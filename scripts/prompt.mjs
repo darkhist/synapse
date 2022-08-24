@@ -21,14 +21,14 @@ inquirer
       message: "What should I call this thought?",
     },
     {
-      name: "content",
-      type: "editor",
-      message: "What're you thinking about?",
-    },
-    {
       name: "hidden",
       type: "confirm",
       message: "Hide?",
+    },
+    {
+      name: "content",
+      type: "editor",
+      message: "What're you thinking about?",
     },
   ])
   .then((answers) => {
