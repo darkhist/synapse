@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
+import Link from "next/link";
 
 import fs from "node:fs";
 
@@ -47,7 +48,7 @@ const Post = ({ frontmatter: { title, date, time }, content }: Props) => (
       <title>{title}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </Head>
-    <main className="prose min-h-fit mx-auto py-6">
+    <main className="prose min-h-fit mx-auto py-6" id="main">
       <h1 className="font-SourceSerifPro text-2xl md:text-5xl px-12 pt-5">
         {title}
       </h1>

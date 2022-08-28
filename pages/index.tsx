@@ -50,9 +50,9 @@ const Home = ({ thoughts }: Props) => (
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </Head>
 
-    <main className="min-h-screen">
+    <main className="min-h-screen" id="main">
       <h1 className="font-SourceSerifPro text-4xl px-auto pt-6 text-center">
-        Thoughts
+        Home
       </h1>
       <List thoughts={thoughts} />
     </main>
