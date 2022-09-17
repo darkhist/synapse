@@ -1,4 +1,5 @@
-/** @type {import('next').NextConfig} */
+const withMarkdoc = require("@markdoc/next.js");
+
 const nextConfig = {
   images: {
     dangerouslyAllowSVG: true,
@@ -8,8 +9,9 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
+  pageExtensions: ["ts", "tsx", "md"],
   reactStrictMode: true,
   swcMinify: true,
 };
 
-module.exports = nextConfig;
+module.exports = withMarkdoc({ mode: "static" })(nextConfig);

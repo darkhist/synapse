@@ -13,24 +13,23 @@ https://github.com/darkhist/synapse
 
 STACK
 Node.js
-JavaScript
-TypeScript
 Next.js
 React
+TypeScript
 Markdown
 
 LIBS
-gray-matter
-markdown-it
 inquirer
+markdoc
+gray-matter
 tailwind
 
 INSPIRATION
 Oak Studio
-mymind
 Streams by Tyler Angert
-Notion 
 The Browser Company 
+Notion 
+mymind
 Archillect 
 Cory Infinite
 
