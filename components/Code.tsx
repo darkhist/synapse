@@ -5,7 +5,7 @@ interface Props {
 }
 
 const Code = ({ children }: Props) => (
-  <pre tabIndex={0} className="overflow-auto">
+  <pre tabIndex={0}>
     <code>{children}</code>
   </pre>
 );
