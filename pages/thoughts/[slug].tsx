@@ -1,10 +1,18 @@
+import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
+import Markdoc from "@markdoc/markdoc";
+import matter from "gray-matter";
 
 import fs from "node:fs";
 
-import matter from "gray-matter";
-import md from "markdown-it";
+import Photo from "../../components/Photo";
+import Code from "../../components/Code";
+import Pre from "../../components/Pre";
+
+import photo from "../../markdoc/tags/photo.markdoc";
+import code from "../../markdoc/tags/code.markdoc";
+import pre from "../../markdoc/tags/pre.markdoc";
 
 interface Props {
   frontmatter: {
@@ -14,6 +22,14 @@ interface Props {
   };
   content: string;
 }
+
+const config = {
+  tags: {
+    photo,
+    code,
+    pre,
+  },
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const files = fs.readdirSync("thoughts");
@@ -32,7 +48,11 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = ctx.params?.slug;
   const source = fs.readFileSync(`thoughts/${slug}.md`, "utf-8");
 
-  const { data: frontmatter, content } = matter(source);
+  const ast = Markdoc.parse(source);
+  const content = JSON.stringify(Markdoc.transform(ast, config));
+
+  const { data: frontmatter } = matter(source);
+
   return {
     props: {
       frontmatter,
@@ -58,10 +78,15 @@ const Post = ({ frontmatter: { title, date, time }, content }: Props) => (
         </span>
         <time>{time}</time>
       </p>
-      <div
-        className="px-12"
-        dangerouslySetInnerHTML={{ __html: md().render(content) }}
-      />
+      <div className="px-12">
+        {Markdoc.renderers.react(JSON.parse(content), React, {
+          components: {
+            Photo,
+            Code,
+            Pre,
+          },
+        })}
+      </div>
     </main>
   </>
 );
