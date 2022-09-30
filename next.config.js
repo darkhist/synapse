@@ -1,3 +1,5 @@
+/** @type {import('next').NextConfig} */
+
 const withMarkdoc = require("@markdoc/next.js");
 
 const nextConfig = {
