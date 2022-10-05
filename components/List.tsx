@@ -6,7 +6,7 @@ const List = ({ thoughts }: Props) => (
   <ul className="flex flex-col m-4">
     {thoughts
       .map(
-        ({ slug, frontmatter: { title, date, hidden } }) =>
+        ({ slug, frontmatter: { title, date, tags, hidden } }) =>
           !hidden && (
             <li
               key={slug}
@@ -23,6 +23,18 @@ const List = ({ thoughts }: Props) => (
                     {title}
                   </a>
                 </Link>
+                <div className="pt-1">
+                  {tags && tags.length === 1 && <span>{`#${tags[0]}`}</span>}
+                  {tags &&
+                    tags
+                      .split(",")
+                      .map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-1 text-gray-400"
+                        >{`# ${tag}`}</span>
+                      ))}
+                </div>
               </article>
             </li>
           )

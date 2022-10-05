@@ -21,6 +21,11 @@ inquirer
       message: "What should I call this thought?",
     },
     {
+      name: "tags",
+      type: "input",
+      message: "Tag?",
+    },
+    {
       name: "hidden",
       type: "confirm",
       message: "Hide?",
@@ -43,6 +48,7 @@ inquirer
     // wrap with "" to avoid YAML parsing issues
     // and ensure timestamps render in HH:MM:SS format
     fs.appendFileSync(out, `time: "${timestamp}"\n`);
+    fs.appendFileSync(out, answers.tags && `tags: ${answers.tags}\n`);
     fs.appendFileSync(out, `hidden: ${answers.hidden}\n`);
     fs.appendFileSync(out, matter);
     fs.appendFileSync(out, "\n\n");
