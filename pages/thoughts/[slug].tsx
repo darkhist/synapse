@@ -19,6 +19,7 @@ interface Props {
     title: string;
     date: string;
     time: string;
+    tags: string;
   };
   content: string;
 }
@@ -61,31 +62,45 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   };
 };
 
-const Post = ({ frontmatter: { title, date, time }, content }: Props) => (
+const Post = ({ frontmatter: { title, date, time, tags }, content }: Props) => (
   <>
     <Head>
       <title>{title}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </Head>
-    <main className="prose min-h-fit mx-auto py-6" id="main">
-      <h1 className="font-SourceSerifPro text-2xl md:text-5xl px-12 pt-5">
-        {title}
-      </h1>
-      <p className="font-bold px-12">
-        <span>{date}</span>
-        <span className="px-2" aria-hidden>
-          /
-        </span>
-        <time>{time}</time>
-      </p>
+    <main className="prose min-h-fit mx-auto py-8" id="main">
       <div className="px-12">
-        {Markdoc.renderers.react(JSON.parse(content), React, {
-          components: {
-            Photo,
-            Code,
-            Pre,
-          },
-        })}
+        <section>
+          <h1 className="text-2xl md:text-4xl m-0">{title}</h1>
+          <p className="py-2 m-0">
+            <span>
+              {new Intl.DateTimeFormat("en-US", {
+                dateStyle: "full",
+              }).format(new Date(date))}
+            </span>
+            <span className="px-1" aria-hidden>
+              ·
+            </span>
+            <span>{time}</span>
+          </p>
+          {tags && (
+            <p className="m-0">
+              {tags.split(",").map((tag) => (
+                <span key={tag}>{` # ${tag} `}</span>
+              ))}
+            </p>
+          )}
+        </section>
+        <hr className="h-px border-0 bg-gray-700 my-6"></hr>
+        <section>
+          {Markdoc.renderers.react(JSON.parse(content), React, {
+            components: {
+              Photo,
+              Code,
+              Pre,
+            },
+          })}
+        </section>
       </div>
     </main>
   </>

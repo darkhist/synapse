@@ -3,44 +3,41 @@ import Link from "next/link";
 import { Props } from "../pages";
 
 const List = ({ thoughts }: Props) => (
-  <ul className="flex flex-col m-4">
-    {thoughts
-      .map(
-        ({ slug, frontmatter: { title, date, tags, hidden } }) =>
-          !hidden && (
-            <li
-              key={slug}
-              className="flex flex-col p-5 hover:bg-[#ffffff0f] hover:translate-x-1"
-            >
-              <article>
-                <p className="text-l text-gray-400">
+  <div className="flex justify-center py-4">
+    <div className="flex flex-col">
+      {thoughts
+        .map(
+          ({ slug, frontmatter: { title, date, hidden } }) =>
+            !hidden && (
+              <article
+                key={slug}
+                className="flex gap-12 md:gap-48 lg:gap-72 justify-between items-baseline p-4"
+              >
+                <h2>
+                  <Link href={`/thoughts/${slug}`}>
+                    <a
+                      title={title}
+                      className="text-[#fc5c6a] text-base lg:text-lg font-bold underline"
+                    >
+                      {title}
+                    </a>
+                  </Link>
+                </h2>
+                <span className="text-gray-100 text-sm lg:text-base font-mono">
                   {new Intl.DateTimeFormat("en-US", {
-                    dateStyle: "full",
-                  }).format(new Date(date))}
-                </p>
-                <Link href={`/thoughts/${slug}`}>
-                  <a className="py-2 text-xl md:text-2xl text-left font-bold underline">
-                    {title}
-                  </a>
-                </Link>
-                <div className="pt-1">
-                  {tags && tags.length === 1 && <span>{`#${tags[0]}`}</span>}
-                  {tags &&
-                    tags
-                      .split(",")
-                      .map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-1 text-gray-400"
-                        >{`# ${tag}`}</span>
-                      ))}
-                </div>
+                    month: "short",
+                    day: "2-digit",
+                  })
+                    .format(new Date(date))
+                    .toUpperCase()
+                    .replace(",", " ")}
+                </span>
               </article>
-            </li>
-          )
-      )
-      .reverse()}
-  </ul>
+            )
+        )
+        .reverse()}
+    </div>
+  </div>
 );
 
 export default List;
