@@ -8,4 +8,8 @@
   body {
     @apply overscroll-none;
   }
+
+  .prose h2 {
+    @apply mt-0;
+  }
 }
