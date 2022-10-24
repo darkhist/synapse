@@ -75,7 +75,9 @@ const Post = ({ frontmatter: { title, date, time, tags }, content }: Props) => (
           <p className="py-2 m-0">
             <span>
               {new Intl.DateTimeFormat("en-US", {
-                dateStyle: "full",
+                month: "long",
+                day: "numeric",
+                year: "numeric",
               }).format(new Date(date))}
             </span>
             <span className="px-1" aria-hidden>
