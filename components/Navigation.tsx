@@ -8,19 +8,18 @@ const Navigation = () => (
       <ul className="flex justify-between items-center">
         <li>
           <h1 className="font-SourceSerifPro font-bold text-2xl hover:text-[#fc5c6a] focus-within:text-[#fc5c6a]">
-            <Link href="/">
-              <a aria-label="home">synapse</a>
+            <Link href="/" aria-label="home">
+              synapse
             </Link>
           </h1>
         </li>
         <li className="pt-[2px]">
-          <Link href="/about.txt">
-            <a
-              className="font-semibold hover:text-[#fc5c6a] focus-within:text-[#fc5c6a]"
-              aria-label="about"
-            >
-              ?
-            </a>
+          <Link
+            href="/about.txt"
+            className="font-bold hover:text-[#fc5c6a] focus-within:text-[#fc5c6a]"
+            aria-label="about"
+          >
+            ?
           </Link>
         </li>
       </ul>

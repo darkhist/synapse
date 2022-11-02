@@ -14,13 +14,12 @@ const List = ({ thoughts }: Props) => (
                 className="flex gap-12 md:gap-48 lg:gap-72 justify-between items-baseline p-4"
               >
                 <h2>
-                  <Link href={`/thoughts/${slug}`}>
-                    <a
-                      title={title}
-                      className="text-[#fc5c6a] text-base lg:text-lg font-bold underline"
-                    >
-                      {title}
-                    </a>
+                  <Link
+                    href={`/thoughts/${slug}`}
+                    title={title}
+                    className="text-[#fc5c6a] text-base lg:text-lg font-bold underline"
+                  >
+                    {title}
                   </Link>
                 </h2>
                 <span className="text-gray-100 text-sm lg:text-base font-mono">
