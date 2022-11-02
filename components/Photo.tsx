@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 interface Props {
   src: string;
@@ -10,8 +10,8 @@ const Photo = ({ src, alt }: Props) => (
     <Image
       src={src}
       alt={alt}
-      width="100%"
-      height="100%"
+      width={100}
+      height={100}
       layout="responsive"
       objectFit="contain"
     />
