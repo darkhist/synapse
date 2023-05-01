@@ -36,21 +36,19 @@ inquirer
       message: "What're you thinking about?",
     },
   ])
-  .then((answers) => {
-    if (answers.hidden) {
-      out = `thoughts/idea-${Date.now()}.hidden.md`;
-    }
+  .then(({ title, tags, hidden, content }) => {
+    if (hidden) out = `thoughts/idea-${Date.now()}.hidden.md`;
 
     fs.writeFileSync(out, matter, { encoding: "utf-8" });
     fs.appendFileSync(out, "\n");
-    fs.appendFileSync(out, `title: ${answers.title}\n`);
+    fs.appendFileSync(out, `title: ${title}\n`);
     fs.appendFileSync(out, `date: ${date}\n`);
     // wrap with "" to avoid YAML parsing issues
     // and ensure timestamps render in HH:MM:SS format
     fs.appendFileSync(out, `time: "${timestamp}"\n`);
-    fs.appendFileSync(out, answers.tags && `tags: ${answers.tags}\n`);
-    fs.appendFileSync(out, `hidden: ${answers.hidden}\n`);
+    fs.appendFileSync(out, tags && `tags: ${tags}\n`);
+    fs.appendFileSync(out, `hidden: ${hidden}\n`);
     fs.appendFileSync(out, matter);
     fs.appendFileSync(out, "\n\n");
-    fs.appendFileSync(out, answers.content);
+    fs.appendFileSync(out, content);
   });
