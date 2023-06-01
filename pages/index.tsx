@@ -1,7 +1,8 @@
+import React from "react";
 import type { GetStaticProps } from "next";
 import Head from "next/head";
 
-import fs from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import matter from "gray-matter";
 
 import List from "../components/List";
@@ -22,15 +23,14 @@ export interface Props {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const files = fs.readdirSync("thoughts");
+  const files = readdirSync("thoughts");
 
   const thoughts = files
     .filter((file) => !file.includes("hidden"))
     .map((file) => {
       const slug = file.replace(".md", "");
-      const posts = fs.readFileSync(`thoughts/${file}`, "utf-8");
+      const posts = readFileSync(`thoughts/${file}`, "utf-8");
       const { data: frontmatter } = matter(posts);
-
       return {
         slug,
         frontmatter,

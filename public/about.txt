@@ -19,7 +19,7 @@ TypeScript
 Markdown
 
 LIBS
-inquirer
+@inquirer/prompts
 markdoc
 gray-matter
 tailwind
