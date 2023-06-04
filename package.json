@@ -1,27 +1,27 @@
 {
   "name": "synapse",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "private": true,
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "new": "node --experimental-modules scripts/prompt.mjs"
+    "new": "npx ts-node scripts/prompt.ts"
   },
   "dependencies": {
+    "@inquirer/prompts": "^1.2.3",
     "@markdoc/markdoc": "^0.1.7",
     "@markdoc/next.js": "^0.1.6",
     "gray-matter": "^4.0.3",
-    "inquirer": "^9.0.2",
     "next": "^13.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.4",
-    "@types/inquirer": "^8.2.1",
+    "@types/markdown-it": "^12.2.3",
     "@types/node": "18.0.6",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
