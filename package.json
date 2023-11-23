@@ -8,14 +8,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "new": "npx ts-node scripts/prompt.ts"
+    "tsc": "npx tsc",
+    "new": "node --loader ts-node/esm scripts/prompt.ts"
   },
   "dependencies": {
     "@inquirer/prompts": "^1.2.3",
     "@markdoc/markdoc": "^0.1.7",
     "@markdoc/next.js": "^0.1.6",
     "gray-matter": "^4.0.3",
-    "next": "^13.3.2",
+    "next": "^14.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
