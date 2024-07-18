@@ -5,10 +5,6 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply overscroll-none;
-  }
-
   .prose h2 {
     @apply mt-0;
   }
